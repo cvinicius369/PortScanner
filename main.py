@@ -89,9 +89,10 @@ class Menu:
         action = input("-> ")
 
         if (action == 1):
-            WhiteDragonTools.port_scan()
+            wdtk.port_scan()
         else:
             print("I N V A L I D !")
 
-#call of the opening aplication
+#Object instancied and calling the Menu class
+wdtk = WhiteDragonKit()
 Menu.m1()

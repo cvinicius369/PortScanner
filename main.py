@@ -3,12 +3,10 @@
 
 #Imports
 import    socket
-import      time
 import  datetime
 import  colorama
 
 from colorama  import Fore, Style
-from     time  import    datetime
 
 #Function for dercoration of aplication
 def logo():

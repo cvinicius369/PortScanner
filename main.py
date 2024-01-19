@@ -2,13 +2,15 @@
 #Lang: Python
 
 #Imports
-import socket
-import time
-import datetime
-import colorama
-from colorama import Fore, Style
-from time import datetime
+import    socket
+import      time
+import  datetime
+import  colorama
 
+from colorama  import Fore, Style
+from     time  import    datetime
+
+#Function for dercoration of aplication
 def logo():
     print('                    .,-;;//;=,')
     print('                . :H@@MM@M#H/ .,+@;,')
@@ -33,9 +35,10 @@ def logo():
 
 #Colors in texts
 colorama.init()
-
+#call of the logo()
 logo()
 
+#main class of the aplication, this is the principal tool of the aplication
 class WhiteDragonKit:
     def port_scan():
         #Title with function of blue color
@@ -57,7 +60,7 @@ class WhiteDragonKit:
             client.settimeout(0.5)
             code = client.connect_ex((alvo, port))
             
-            portaaberta = '===| Porta Aberta: '
+            portaaberta = '===| Porta Aberta '
             portafechada = '==| Porta Fechada'
             
             #Conditional Estructure
@@ -76,6 +79,8 @@ class WhiteDragonKit:
                 print(Fore.RED + Style.BRIGHT + portafechada + Fore.RESET)
                 print(f'Codigo {code}')
                 print('-------------------------------------------------------')
+
+#menu class, this is for organization and decoration of the aplication
 class Menu:
     def m1():
         hoje = datetime.datetime.now()
@@ -88,4 +93,5 @@ class Menu:
         else:
             print("I N V A L I D !")
 
+#call of the opening aplication
 Menu.m1()

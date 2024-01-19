@@ -4,8 +4,10 @@
 #Imports
 import socket
 import time
+import datetime
 import colorama
 from colorama import Fore, Style
+from time import datetime
 
 def logo():
     print('                    .,-;;//;=,')
@@ -34,41 +36,56 @@ colorama.init()
 
 logo()
 
-#Title with function of blue color
-title = '/////////////P O R T   S C A N N E R ///////////////////'
-print(Fore.BLUE + Style.BRIGHT + title + Fore.RESET)
+class WhiteDragonKit:
+    def port_scan():
+        #Title with function of blue color
+        title = '/////////////P O R T   S C A N N E R ///////////////////'
+        print(Fore.BLUE + Style.BRIGHT + title + Fore.RESET)
 
-#Ports and Objetive definition
-ports = [20, 21, 23, 25, 80, 110, 135, 443, 3306]
-inforalvo = 'Informe o alvo abaixo'
-print(Fore.YELLOW + Style.BRIGHT + inforalvo + Fore.RESET)
+        #Ports and Objetive definition
+        ports = [20, 21, 23, 25, 80, 110, 135, 443, 3306]
+        inforalvo = 'Informe o alvo abaixo'
+        print(Fore.YELLOW + Style.BRIGHT + inforalvo + Fore.RESET)
 
-alvo = input('->')
-print('---------------------------------------------------')
-abertas = []
+        alvo = input('->')
+        print('---------------------------------------------------')
+        abertas = []
 
-#Porting Tests 
-for port in ports:
-	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	client.settimeout(0.5)
-	code = client.connect_ex((alvo, port))
-	
-	portaaberta = '===| Porta Aberta: '
-	portafechada = '==| Porta Fechada'
-	
-	#Conditional Estructure
-	if code == 0:
-		time.sleep(0.4)
-		
-		print(f'Porta: {port}')
-		print(Fore.GREEN + Style.BRIGHT + portaaberta + Fore.RESET)
-		print(f'Codigo {code}')
-		print('-------------------------------------------------------')
-		
-	else:
-		time.sleep(0.4)
-		
-		print(f'Porta: {port}')
-		print(Fore.RED + Style.BRIGHT + portafechada + Fore.RESET)
-		print(f'Codigo {code}')
-		print('-------------------------------------------------------')
+        #Porting Tests 
+        for port in ports:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.settimeout(0.5)
+            code = client.connect_ex((alvo, port))
+            
+            portaaberta = '===| Porta Aberta: '
+            portafechada = '==| Porta Fechada'
+            
+            #Conditional Estructure
+            if code == 0:
+                time.sleep(0.4)
+                
+                print(f'Porta: {port}')
+                print(Fore.GREEN + Style.BRIGHT + portaaberta + Fore.RESET)
+                print(f'Codigo {code}')
+                print('-------------------------------------------------------')
+                
+            else:
+                time.sleep(0.4)
+                
+                print(f'Porta: {port}')
+                print(Fore.RED + Style.BRIGHT + portafechada + Fore.RESET)
+                print(f'Codigo {code}')
+                print('-------------------------------------------------------')
+class Menu:
+    def m1():
+        hoje = datetime.datetime.now()
+        print(hoje)
+        print("[1]-Port Scanner\n[2]-DNS Brute\n[3]-Remote Conection Client\n[4]-Remote Conection Server")
+        action = input("-> ")
+
+        if (action == 1):
+            WhiteDragonTools.port_scan()
+        else:
+            print("I N V A L I D !")
+
+Menu.m1()

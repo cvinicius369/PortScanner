@@ -10,3 +10,6 @@ Responsavel pela "conexão" da aplicação com a rede de internet.
 
 ### COLORAMA
 Responsável pelas cores dos caracteres da aplicação.
+
+### DATETIME
+Usada para definir data e hora, posteriormente será usada para realizar ações automaticamente.

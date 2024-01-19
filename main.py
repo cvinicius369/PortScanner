@@ -70,6 +70,7 @@ class WhiteDragonKit:
                 print(Fore.GREEN + Style.BRIGHT + portaaberta + Fore.RESET)
                 print(f'Codigo {code}')
                 print('-------------------------------------------------------')
+                abertas(code)
                 
             else:
                 time.sleep(0.4)
@@ -85,7 +86,7 @@ class Menu:
         hoje = datetime.datetime.now()
         print(hoje)
         print("[1]-Port Scanner\n[2]-DNS Brute\n[3]-Remote Conection Client\n[4]-Remote Conection Server")
-        action = input("-> ")
+        action = int(input("-> "))
 
         if (action == 1):
             print("< Iniciando > ")

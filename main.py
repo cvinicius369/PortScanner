@@ -2,6 +2,7 @@
 #Lang: Python
 
 #Imports
+import      time
 import    socket
 import  datetime
 import  colorama
@@ -87,7 +88,15 @@ class Menu:
         action = input("-> ")
 
         if (action == 1):
-            wdtk.port_scan()
+            print("< Iniciando > ")
+            cont = 3
+            while (cont > 1):
+                print(cont)
+                cont -= 1
+            try:
+                wdtk.port_scan()
+            except:
+                print("Erro ao executar função")
         else:
             print("I N V A L I D !")
 

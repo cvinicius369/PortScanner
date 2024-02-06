@@ -9,33 +9,9 @@ import  colorama
 
 from colorama  import Fore, Style
 
-#Function for dercoration of aplication
-def logo():
-    print('                    .,-;;//;=,')
-    print('                . :H@@MM@M#H/ .,+@;,')
-    print('             ,/X+ +M@@M@MM%=,-%HMMM@X/,')
-    print('           -+@MM; $M@@MH+-, ;XMMMM@MMMM@+-')
-    print('          ;@M@@M- XM@X;. -+XXXXXHHH@M@M#@/.')
-    print('        ,%MM@@MH ,@%=            .---=-=:=,.')
-    print('        =@#@@MX  .,              -%HX$$%%%+;')
-    print('       =-./@M@M$                  .;@MMMM@MM:')
-    print('       X@/ -$MM/                    .+MM@@@M$')
-    print('      ,@M@H: :@:                    . =XH@@@@-')
-    print('      ,@@MMX,  .                    /H- ;@M@M=')
-    print('      .H@@@@M@+,                    %MM+..%#$.')
-    print('       /MMMM@MMH/.                  XM@MH; =;')
-    print('        /%+%$XHH@$=               , .H@@@MX,  ')
-    print('         .=--------.            -%H.,@@@@@MX,')
-    print('         .%MM@@@HHHXX$$$%+-  .:$MMX =M@@MM%.')
-    print('           =XMMM@MM@MM#H; ,-+HMM@M+ /MMMX=')
-    print('             =%@M@M#@$-. =$@MM@@@M; %M%=')
-    print('               ,:+$+-,/H#MMMMMMMM@= =,')
-    print('                     =++%%%%+/:-')
-
 #Colors in texts
 colorama.init()
 #call of the logo()
-logo()
 
 #main class of the aplication, this is the principal tool of the aplication
 class WhiteDragonKit:

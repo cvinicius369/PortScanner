@@ -14,7 +14,7 @@ colorama.init()
 #call of the logo()
 
 #main class of the aplication, this is the principal tool of the aplication
-class WhiteDragonKit:
+class WDKit:
     def port_scan():
         #Title with function of blue color
         title = '/////////////P O R T   S C A N N E R ///////////////////'
@@ -61,22 +61,11 @@ class Menu:
     def m1():
         hoje = datetime.datetime.now()
         print(hoje)
-        print("[1]-Port Scanner\n[2]-DNS Brute\n[3]-Remote Conection Client\n[4]-Remote Conection Server")
-        action = int(input("-> "))
-
-        if (action == 1):
-            print("< Iniciando > ")
-            cont = 3
-            while (cont > 1):
-                print(cont)
-                cont -= 1
-            try:
-                wdtk.port_scan()
-            except:
-                print("Erro ao executar função")
-        else:
-            print("I N V A L I D !")
+        try:
+            wdtk.port_scan()
+        except:
+            print("Erro ao executar função")
 
 #Object instancied and calling the Menu class
-wdtk = WhiteDragonKit()
+wdtk = WDKit()
 Menu.m1()

@@ -1,71 +1,43 @@
-#Project of Portscanner created by @cvinicius369
-#Lang: Python
+import socket
+from datetime import datetime
 
-#Imports
-import      time
-import    socket
-import  datetime
-import  colorama
+def scan_ports(target, port_range):
+    print(f"Iniciando a varredura de portas em {target}")
+    
+    # Registra o horário de início da varredura
+    start_time = datetime.now()
 
-from colorama  import Fore, Style
+    # Itera sobre o intervalo de portas especificado
+    for port in port_range:
+        # Cria um socket
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket.setdefaulttimeout(1)  # Define um tempo limite de 1 segundo para a conexão
 
-#Colors in texts
-colorama.init()
-#call of the logo()
+        # Tenta se conectar à porta
+        result = sock.connect_ex((target, port))
 
-#main class of the aplication, this is the principal tool of the aplication
-class WDKit:
-    def port_scan():
-        #Title with function of blue color
-        title = '/////////////P O R T   S C A N N E R ///////////////////'
-        print(Fore.BLUE + Style.BRIGHT + title + Fore.RESET)
+        if result == 0:
+            print(f"Porta {port} está ABERTA")
+        else:
+            print(f"Porta {port} está FECHADA")
 
-        #Ports and Objetive definition
-        ports = [20, 21, 23, 25, 80, 110, 135, 443, 3306]
-        inforalvo = 'Informe o alvo abaixo'
-        print(Fore.YELLOW + Style.BRIGHT + inforalvo + Fore.RESET)
+        # Fecha o socket
+        sock.close()
 
-        alvo = input('->')
-        print('---------------------------------------------------')
-        abertas = []
+    # Registra o tempo total de varredura
+    end_time = datetime.now()
+    total_time = end_time - start_time
+    print(f"\nVarredura concluída em: {total_time}")
 
-        #Porting Tests 
-        for port in ports:
-            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.settimeout(0.5)
-            code = client.connect_ex((alvo, port))
-            
-            portaaberta = '===| Porta Aberta '
-            portafechada = '==| Porta Fechada'
-            
-            #Conditional Estructure
-            if code == 0:
-                time.sleep(0.4)
-                
-                print(f'Porta: {port}')
-                print(Fore.GREEN + Style.BRIGHT + portaaberta + Fore.RESET)
-                print(f'Codigo {code}')
-                print('-------------------------------------------------------')
-                abertas(code)
-                
-            else:
-                time.sleep(0.4)
-                
-                print(f'Porta: {port}')
-                print(Fore.RED + Style.BRIGHT + portafechada + Fore.RESET)
-                print(f'Codigo {code}')
-                print('-------------------------------------------------------')
-
-#menu class, this is for organization and decoration of the aplication
-class Menu:
-    def m1():
-        hoje = datetime.datetime.now()
-        print(hoje)
-        try:
-            wdtk.port_scan()
-        except:
-            print("Erro ao executar função")
-
-#Object instancied and calling the Menu class
-wdtk = WDKit()
-Menu.m1()
+# Exemplo de uso
+if __name__ == "__main__":
+    # Solicita o alvo e o intervalo de portas ao usuário
+    target = input("Digite o endereço IP ou hostname do alvo: ")
+    start_port = int(input("Digite a porta inicial: "))
+    end_port = int(input("Digite a porta final: "))
+    
+    # Cria um intervalo de portas
+    port_range = range(start_port, end_port + 1)
+    
+    # Executa a varredura de portas
+    scan_ports(target, port_range)
